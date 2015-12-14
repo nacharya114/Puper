@@ -4,14 +4,39 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
+
+    private Button onButton; //Puts diliverer online or takes offline
+    //private EditText UsrName, Password;
+    //private TextView msg, UsrNameOut, PasswordOut;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        onButton = (Button) findViewById(R.id.button);
+        //UsrName = (EditText) FindViewById(R.id.textenter);
+        //Password = (EditText) FindViewById(R.id.editText);
+        //msg = (TextView) FindVeiwById(R.id.txtViewOut);
+        //UsrNameOut = (TextView) findViewById(R.id.txtOutUsrName);
+        //PasswordOut = (TextView) findViewById(R.id.txtOutPassword);
+
+
+       onButton.setOnClickListener(new View.OnClickListener() {
+           public void onClick(View v) {
+                //TODO
+                //Put Deliverer (On/Off)line
+                //Change Button Text
+           }
+       });
+
     }
+
 
 
     @Override
