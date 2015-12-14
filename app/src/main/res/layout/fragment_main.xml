@@ -8,7 +8,7 @@
 
     <TextView android:text="Pickup Location" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txtFuck"
+        android:id="@+id/txtPickup"
         android:textSize="30dp"
         android:textStyle="bold"
         android:layout_alignParentTop="true"
@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:text="USER"
         android:id="@+id/Username"
-        android:layout_alignBottom="@+id/txtFuck"
+        android:layout_alignBottom="@+id/txtPickup"
         android:layout_alignParentEnd="true" />
 
     <Button
@@ -28,9 +28,9 @@
         android:layout_height="wrap_content"
         android:text="Go Online"
         android:id="@+id/button"
-        android:layout_below="@+id/txtFuck"
-        android:layout_alignStart="@+id/txtFuck"
-        android:layout_alignEnd="@+id/txtFuck" />
+        android:layout_below="@+id/txtPickup"
+        android:layout_alignStart="@+id/txtPickup"
+        android:layout_alignEnd="@+id/txtPickup" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -40,34 +40,5 @@
         android:id="@+id/textView"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Penis"
-        android:id="@+id/txtPEnis"
-        android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/txtFuck"
-        android:layout_marginStart="43dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="PUPER"
-        android:id="@+id/textView"
-        android:layout_below="@+id/txtFuck"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="LOLOLOL"
-        android:id="@+id/textView2"
-        android:layout_below="@+id/textView"
-        android:layout_alignStart="@+id/textView"
-        android:layout_marginTop="81dp" />
 
 </RelativeLayout>
