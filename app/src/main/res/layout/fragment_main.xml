@@ -64,7 +64,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="LOLOLO"
+        android:text="LOLOLOL"
         android:id="@+id/textView2"
         android:layout_below="@+id/textView"
         android:layout_alignStart="@+id/textView"
