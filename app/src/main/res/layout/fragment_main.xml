@@ -16,7 +16,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="PUPER"
+        android:text="PUPEPPERP"
         android:id="@+id/textView"
         android:layout_below="@+id/txtFuck"
         android:layout_centerHorizontal="true" />
