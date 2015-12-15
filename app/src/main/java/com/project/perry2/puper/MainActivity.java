@@ -11,7 +11,7 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button onButton; //Puts diliverer online or takes offline
+    //private Button onButton; //Puts diliverer online or takes offline
     //private EditText UsrName, Password;
     //private TextView msg, UsrNameOut, PasswordOut;
 
@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        onButton = (Button) findViewById(R.id.button);
+        //onButton = (Button) findViewById(R.id.button);
         //UsrName = (EditText) FindViewById(R.id.textenter);
         //Password = (EditText) FindViewById(R.id.editText);
         //msg = (TextView) FindVeiwById(R.id.txtViewOut);
@@ -27,13 +27,13 @@ public class MainActivity extends AppCompatActivity {
         //PasswordOut = (TextView) findViewById(R.id.txtOutPassword);
 
 
-       onButton.setOnClickListener(new View.OnClickListener() {
-           public void onClick(View v) {
-                //TODO
-                //Put Deliverer (On/Off)line
-                //Change Button Text
-           }
-       });
+//       onButton.setOnClickListener(new View.OnClickListener() {
+//           public void onClick(View v) {
+//                //TODO
+//                //Put Deliverer (On/Off)line
+//                //Change Button Text
+//           }
+//       });
 
     }
 
