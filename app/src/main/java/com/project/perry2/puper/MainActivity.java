@@ -1,5 +1,7 @@
 package com.project.perry2.puper;
 
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -19,22 +21,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //onButton = (Button) findViewById(R.id.button);
-        //UsrName = (EditText) FindViewById(R.id.textenter);
-        //Password = (EditText) FindViewById(R.id.editText);
-        //msg = (TextView) FindVeiwById(R.id.txtViewOut);
-        //UsrNameOut = (TextView) findViewById(R.id.txtOutUsrName);
-        //PasswordOut = (TextView) findViewById(R.id.txtOutPassword);
 
-
-//       onButton.setOnClickListener(new View.OnClickListener() {
-//           public void onClick(View v) {
-//                //TODO
-//                //Put Deliverer (On/Off)line
-//                //Change Button Text
-//           }
-//       });
-
+//        FragmentManager fm = getSupportFragmentManager();
+//        FragmentTransaction transaction = fm.beginTransaction();
+//        MapTestActivity test = new MapTestActivity();
+//        CustMapFragment cmf = new CustMapFragment();
+//        transaction.add(R.id.map, cmf, "Hi");
+//        transaction.commit();
     }
 
 

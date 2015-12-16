@@ -20,7 +20,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
  * Created by Neil on 12/15/2015.
  * Custom Fragment with a google map for testing porpoises.
  */
-public class CustMapFragment extends MapFragment {
+public class CustMapFragment extends Fragment {
 
     private GoogleMap map;
 
@@ -35,30 +35,33 @@ public class CustMapFragment extends MapFragment {
                              Bundle savedInstanceData) {
         View v = inflater.inflate(R.layout.fragment_maps, container, false);
 
-        Log.d("MapFragment", "onCreateView Testimg");
+        Log.d("MapFragment", "onCreateView Testing");
 
-        map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map))
-                .getMap();
-        if (map != null) {
-            setUpMap();
-        }
+        setUpMapIfNeeded();
+
 
         return v;
     }
 
-//    private void setUpMapIfNeeded() {
-//        // Do a null check to confirm that we have not already instantiated the map.
-//        if (map == null) {
-//            // Try to obtain the map from the SupportMapFragment.
-//            map = ((SupportMapFragment) getFragmentManager().findFragmentById(R.id.map))
-//                    .getMap();
-//            map.addMarker(new MarkerOptions().position(new LatLng(0, 0)).title("Marker"));
-//            // Check if we were successful in obtaining the map.
-//            if (map != null) {
-//                setUpMap();
-//            }
-//        }
-//    }
+    @Override
+    public void onResume() {
+        setUpMapIfNeeded();
+    }
+
+    private void setUpMapIfNeeded() {
+        // Do a null check to confirm that we have not already instantiated the map.
+        if (map == null) {
+            // Try to obtain the map from the SupportMapFragment.
+            map = ((SupportMapFragment) getFragmentManager().findFragmentById(R.id.map))
+                    .getMap();
+            map.addMarker(new MarkerOptions().position(new LatLng(0, 0)).title("Marker"));
+            // Check if we were successful in obtaining the map.
+            if (map != null) {
+                setUpMap();
+            }
+        }
+        Log.d("FuncCall", "setUpMapIfNeeded in here");
+    }
 
     private void setUpMap() {
         Marker cust = map.addMarker(new MarkerOptions()
