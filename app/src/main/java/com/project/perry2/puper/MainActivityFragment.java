@@ -2,6 +2,7 @@ package com.project.perry2.puper;
 
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +27,7 @@ public class MainActivityFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getContext(), "This is a test", Toast.LENGTH_LONG).show();
+                Log.d("MainActivity", "onClick Logs properly");
             }
         });
 

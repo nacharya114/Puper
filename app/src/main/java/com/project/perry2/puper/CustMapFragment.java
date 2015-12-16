@@ -2,6 +2,7 @@ package com.project.perry2.puper;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,6 +35,8 @@ public class CustMapFragment extends MapFragment {
                              Bundle savedInstanceData) {
         View v = inflater.inflate(R.layout.fragment_maps, container, false);
 
+        Log.d("MapFragment", "onCreateView Testimg");
+
         map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map))
                 .getMap();
         if (map != null) {
@@ -65,6 +68,7 @@ public class CustMapFragment extends MapFragment {
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(cust.getPosition(), 15));
         map.animateCamera(CameraUpdateFactory.zoomTo(10), 2000, null);
 
+        Log.d("MapFragment","This works");
     }
 
 }
