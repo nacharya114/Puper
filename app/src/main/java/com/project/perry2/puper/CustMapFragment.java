@@ -8,16 +8,18 @@ import android.view.ViewGroup;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 /**
  * Created by Neil on 12/15/2015.
- * Custom Fragment with a google map for testing purposes.
+ * Custom Fragment with a google map for testing porpoises.
  */
-public class CustMapFragment extends Fragment {
+public class CustMapFragment extends MapFragment {
 
     private GoogleMap map;
 
@@ -25,12 +27,14 @@ public class CustMapFragment extends Fragment {
 
     }
 
+    //TODO: Finish map marker issues.
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceData) {
         View v = inflater.inflate(R.layout.fragment_maps, container, false);
 
-        map = ((SupportMapFragment) getFragmentManager().findFragmentById(R.id.map))
+        map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map))
                 .getMap();
         if (map != null) {
             setUpMap();
@@ -56,7 +60,8 @@ public class CustMapFragment extends Fragment {
     private void setUpMap() {
         Marker cust = map.addMarker(new MarkerOptions()
                 .position(new LatLng(0,20))
-                .title("Marker"));
+                .title("Marker")
+                .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher)));
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(cust.getPosition(), 15));
         map.animateCamera(CameraUpdateFactory.zoomTo(10), 2000, null);
 
