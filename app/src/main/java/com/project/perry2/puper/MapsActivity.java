@@ -47,6 +47,7 @@ public class MapsActivity extends FragmentActivity {
             // Try to obtain the map from the SupportMapFragment.
             mMap = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map))
                     .getMap();
+            mMap.addMarker(new MarkerOptions().position(new LatLng(0, 0)).title("Marker"));
             // Check if we were successful in obtaining the map.
             if (mMap != null) {
                 setUpMap();
