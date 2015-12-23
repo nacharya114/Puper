@@ -1,9 +1,12 @@
 package com.project.perry2.puper;
 
+import android.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -11,6 +14,18 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        final Button btnSignUp = (Button)findViewById(R.id.btnNextFrag);
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.add(R.id.placeholder,new LoginFragment());
+        ft.commit();
+        btnSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction ft2 = getFragmentManager().beginTransaction();
+                ft2.replace(R.id.placeholder,new SignUpFragment());
+                btnSignUp.setVisibility(View.GONE);
+            }
+        });
     }
 
     @Override

@@ -1,0 +1,65 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" tools:context="com.project.perry2.puper.LoginFragment"
+    android:id="@+id/Login">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Username:"
+        android:id="@+id/txtUsername"
+        android:layout_marginTop="176dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:textSize="30dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Password"
+        android:id="@+id/txtPassword"
+        android:layout_alignBottom="@+id/txtfldPassword"
+        android:layout_alignParentStart="true"
+        android:textSize="30dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/txtfldPassword"
+        android:layout_centerVertical="true"
+        android:layout_alignStart="@+id/txtfldUsersname" />
+
+    <EditText
+        android:layout_width="215dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtfldUsersname"
+        android:layout_alignBottom="@+id/txtUsername"
+        android:layout_toEndOf="@+id/txtUsername" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Login"
+        android:id="@+id/txtLogin"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="46dp"
+        android:textSize="50dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:id="@+id/btnLogin"
+        android:layout_marginTop="46dp"
+        android:layout_below="@+id/txtfldPassword"
+        android:layout_centerHorizontal="true"
+        android:textSize="30dp" />
+
+</RelativeLayout>
