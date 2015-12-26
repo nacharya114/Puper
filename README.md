@@ -20,6 +20,6 @@ Things
   <ol type="i">
   <li>Create a database of users using the usernames and passwords</li>
   <li>Verify if entered usernames and passwords match those saved in database</li>
-  <li>Send pickup and dropoff locations to runner<li>
+  <li>Send pickup and dropoff locations to runner</li>
   </ol>
 </ol>
