@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:ems="10"
+        android:id="@+id/editTextName"
+        android:layout_below="@+id/editTextCard"
+        android:layout_alignStart="@+id/editTextCard" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPostalAddress"
+        android:ems="10"
+        android:id="@+id/editTextAddress"
+        android:layout_below="@+id/editTextName"
+        android:layout_alignEnd="@+id/editTextName"
+        android:text="Address" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/editTextCard"
+        android:text="Card Number"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="56dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPostalAddress"
+        android:ems="10"
+        android:id="@+id/editTextCountry"
+        android:layout_below="@+id/editTextAddress"
+        android:layout_alignStart="@+id/editTextAddress"
+        android:text="Country" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPostalAddress"
+        android:ems="10"
+        android:id="@+id/editTextState"
+        android:layout_below="@+id/editTextCountry"
+        android:layout_alignStart="@+id/editTextCountry"
+        android:text="State" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPostalAddress"
+        android:ems="10"
+        android:layout_below="@+id/editTextState"
+        android:layout_alignStart="@+id/editTextState"
+        android:text="City"
+        android:id="@+id/editTextCity" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPostalAddress"
+        android:ems="10"
+        android:text="Zip Code"
+        android:layout_below="@+id/editTextCity"
+        android:layout_alignStart="@+id/editTextCity"
+        android:id="@+id/editTextZip" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:id="@+id/buttonSubmit"
+        android:layout_marginTop="46dp"
+        android:layout_below="@+id/editTextZip"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>
