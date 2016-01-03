@@ -24,20 +24,35 @@ public class HelpFragment extends Fragment {
         locate = (Button) helpView.findViewById(R.id.buttonLocate);
         report = (Button) helpView.findViewById(R.id.buttonIssue);
 
-        accou.setOnClickListener((v) -> {
-            //TODO Open User Account Info
+        accou.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
         });
-        pay.setOnClickListener((v) -> {
-            //TODO Open User Payment Info
+        pay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
         });
-        howTo.setOnClickListener((v) -> {
-            //TODO Open App Instructions
+        howTo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
         });
-        locate.setOnClickListener((v) -> {
-            //TODO Report Current Address of Package
+        locate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
         });
-        report.setOnClickListener((v) -> {
-            //TODO Allow User to report an Issue
+        report.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
         });
         return helpView;
     }

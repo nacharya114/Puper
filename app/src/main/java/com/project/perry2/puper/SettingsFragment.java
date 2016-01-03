@@ -24,18 +24,18 @@ public class SettingsFragment extends Fragment {
         work = (Button)settingsView.findViewById(R.id.buttonWork);
         signOut = (Button)settingsView.findViewById(R.id.buttonSignOut);
 
-        edit.setOnClickListener((v) -> {
-            //TODO Allow editing of Account
-        });
-        home.setOnClickListener((v) -> {
-            //TODO Set Home Address
-        });
-        work.setOnClickListener((v) -> {
-            //TODO Set Work Address
-        });
-        signOut.setOnClickListener((v) -> {
-            //TODO Log Oiut User
-        });
+//        edit.setOnClickListener((v) -> {
+//            //TODO Allow editing of Account
+//        });
+//        home.setOnClickListener((v) -> {
+//            //TODO Set Home Address
+//        });
+//        work.setOnClickListener((v) -> {
+//            //TODO Set Work Address
+//        });
+//        signOut.setOnClickListener((v) -> {
+//            //TODO Log Oiut User
+//        });
         return settingsView;
     }
 }

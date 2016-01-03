@@ -31,8 +31,11 @@ public class PaymentFragment extends Fragment {
         state = (EditText)view.findViewById(R.id.editTextState);
         zip = (EditText)view.findViewById(R.id.editTextZip);
         submit = (Button)view.findViewById(R.id.buttonSubmit);
-        submit.setOnClickListener((v) -> {
-                //TODO Submit Payment Details to Server
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
         });
         return view;
     }
