@@ -6,21 +6,12 @@
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivityFragment"
     android:id="@+id/relLayout">
 
-    <TextView android:text="Pickup Location" android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/txtPickup"
-        android:textSize="30dp"
-        android:textStyle="bold"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="USER"
         android:id="@+id/btnUser"
-        android:layout_alignBottom="@+id/txtPickup"
         android:layout_alignParentEnd="true" />
 
     <Button
@@ -28,8 +19,7 @@
         android:layout_height="wrap_content"
         android:text="Go Online"
         android:id="@+id/button"
-        android:layout_below="@+id/txtPickup"
-        android:layout_alignStart="@+id/txtPickup"
-        android:layout_alignEnd="@+id/txtPickup" />
+        android:layout_below="@+id/btnUser"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
