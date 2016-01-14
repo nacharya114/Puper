@@ -2,47 +2,52 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Edit Account"
-        android:id="@+id/buttonEdit"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="42dp" />
+    <include
+        android:id="@+id/app_bar"
+        layout="@layout/app_bar"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Favorite Places"
-        android:id="@+id/textView2"
-        android:layout_marginTop="60dp"
-        android:layout_below="@+id/buttonEdit"
-        android:layout_centerHorizontal="true" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Edit Account"
+            android:id="@+id/buttonEdit"
+            android:layout_below="@+id/app_bar"
+            android:layout_centerHorizontal="true" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Home"
-        android:id="@+id/buttonHome"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Favorite Places"
+            android:id="@+id/textView2"
+            android:layout_marginTop="60dp"
+            android:layout_below="@+id/buttonEdit"
+            android:layout_centerHorizontal="true" />
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Work"
-        android:id="@+id/buttonWork"
-        android:layout_below="@+id/buttonHome"
-        android:layout_centerHorizontal="true" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Home"
+            android:id="@+id/buttonHome"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sign Out"
-        android:id="@+id/buttonSignOut"
-        android:layout_below="@+id/buttonWork"
-        android:layout_centerHorizontal="true" />
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Work"
+            android:id="@+id/buttonWork"
+            android:layout_below="@+id/buttonHome"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sign Out"
+            android:id="@+id/buttonSignOut"
+            android:layout_below="@+id/buttonWork"
+            android:layout_alignStart="@+id/buttonHome" />
+
+
 </RelativeLayout>

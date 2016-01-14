@@ -11,4 +11,6 @@
     <string name="drawer_open">Open</string>
     <string name="drawer_close">Close</string>
     <string name="title_activity_settings">SettingsActivity</string>
+    <string name="title_activity_help">HelpActivity</string>
+    <string name="title_activity_history">HistoryActivity</string>
 </resources>
