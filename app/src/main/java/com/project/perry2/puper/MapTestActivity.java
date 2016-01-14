@@ -5,7 +5,11 @@ import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.Button;
 
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
@@ -14,11 +18,20 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MapTestActivity extends AppCompatActivity {
     private Toolbar toolbar;
+    private Button btnUser;
+    //GoogleApiClient mGoogleClient;
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+//        if (mGoogleClient == null) {
+//            mGoogleClient = new GoogleApiClient.Builder(this)
+//                    .addConnectionCallbacks(this)
+//                    .addOnConnectionFailedListener(this)
+//                    .addApi(LocationServices.API)
+//                    .build();;
+//        }
         setContentView(R.layout.activity_map_test);
         setUpMapIfNeeded();
         toolbar = (Toolbar)findViewById(R.id.app_bar);
@@ -26,7 +39,13 @@ public class MapTestActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         NavigationDrawerFragment drawerFragment = (NavigationDrawerFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_navigation_drawer);
         drawerFragment.setUp(R.id.fragment_navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout), toolbar);
-
+        btnUser = (Button) findViewById(R.id.btnUser);
+//        btnUser.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                LocationServices.FusedLocationApi.getLastLocation();
+//            }
+//        });
 
     }
 
