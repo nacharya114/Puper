@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,7 +18,8 @@ import java.util.List;
  * Created by Aditya Mohile on 12/29/2015.
  */
 public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
-
+    private Context context1;
+    private ClickListener clickListener;
     private  LayoutInflater inflater;
     List<Information> data = Collections.emptyList();
     public Adapter(Context context, List<Information> data){
@@ -38,18 +40,37 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
         holder.icon.setImageResource(current.iconId);
     }
 
+    public void setClickListener(ClickListener clickListener){
+        this.clickListener=clickListener;
+    }
+
     @Override
     public int getItemCount() {
         return data.size();
     }
 
-    class MyViewHolder extends RecyclerView.ViewHolder {
+    class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         TextView title;
         ImageView icon;
+        RelativeLayout navRow;
         public MyViewHolder(View itemView) {
             super(itemView);
             title = (TextView) itemView.findViewById(R.id.listText);
             icon = (ImageView) itemView.findViewById(R.id.listIcon);
+            navRow = (RelativeLayout)itemView.findViewById(R.id.customRow);
+            navRow.setOnClickListener(this);
+            //icon.setOnClickListener(this);
         }
+
+        @Override
+        public void onClick(View v) {
+            if (clickListener!=null){
+                clickListener.itemClicked(v,getAdapterPosition());
+            }
+        }
+    }
+
+    public interface ClickListener{
+        public void itemClicked(View view, int position);
     }
 }
