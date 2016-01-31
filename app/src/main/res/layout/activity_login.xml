@@ -7,22 +7,22 @@
     tools:context="com.project.perry2.puper.LoginActivity"
     android:id="@+id/relLayout">
 
-
-    <Button
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/google_sign_in"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sign Up"
-        android:id="@+id/btnNextFrag"
-        android:textSize="30dp"
-        android:layout_below="@+id/placeholder"
+        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:id="@+id/placeholder">
-    </FrameLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Puper"
+        android:id="@+id/textView3"
+        android:layout_above="@+id/google_sign_in"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="103dp"
+        android:textSize="50dp" />
+
 </RelativeLayout>
