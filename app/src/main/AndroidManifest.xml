@@ -34,7 +34,7 @@
 
 
         <activity
-            android:name=".MapTestActivity"
+            android:name=".MainActivity"
             android:label="@string/title_activity_map_test">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
