@@ -1,9 +1,11 @@
 package com.project.perry2.puper;
 
 import android.Manifest;
+import android.content.IntentSender;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
@@ -13,12 +15,21 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.PendingResult;
+import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.location.LocationListener;
+import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.location.LocationSettingsRequest;
+import com.google.android.gms.location.LocationSettingsResult;
+import com.google.android.gms.location.LocationSettingsStates;
+import com.google.android.gms.location.LocationSettingsStatusCodes;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -26,17 +37,20 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.parse.Parse;
 import com.parse.ParseObject;
 
 
 public class MapTestActivity extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks,
-        GoogleApiClient.OnConnectionFailedListener {
+        GoogleApiClient.OnConnectionFailedListener, LocationListener {
     private Toolbar toolbar;
     private Button btnUser;
     GoogleApiClient mGoogleClient;
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
+    private Location mCurrentLocation;
+    private Marker userMarker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +85,7 @@ public class MapTestActivity extends AppCompatActivity implements GoogleApiClien
         btnUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Location mLastLocation;
+                Location mLastLocation = null;
                 LatLng userLoc;
                 if (ActivityCompat.checkSelfPermission(MapTestActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(MapTestActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                     // TODO: Consider calling
@@ -81,16 +95,18 @@ public class MapTestActivity extends AppCompatActivity implements GoogleApiClien
                     //                                          int[] grantResults)
                     // to handle the case where the user grants the permission. See the documentation
                     // for ActivityCompat#requestPermissions for more details.
-                    return;
+
                 }
                 mLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleClient);
                 if (mLastLocation != null) {
                     Log.d("test", mLastLocation.toString());
                     userLoc = new LatLng(mLastLocation.getLatitude(), mLastLocation.getLongitude());
-                    mMap.addMarker(new MarkerOptions().title("User Location")
+                    userMarker = mMap.addMarker(new MarkerOptions().title("User Location")
                             .position(userLoc));
                     mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(userLoc, 15));
                     mMap.animateCamera(CameraUpdateFactory.zoomIn());
+                } else {
+                    Toast.makeText(getApplicationContext(),"Cannot retrive location.", Toast.LENGTH_SHORT);
                 }
             }
         });
@@ -177,7 +193,7 @@ public class MapTestActivity extends AppCompatActivity implements GoogleApiClien
      * This should only be called once and when we are sure that {@link #mMap} is not null.
      */
     private void setUpMap() {
-        Location mLastLocation;
+        Location mLastLocation = null;
         LatLng userLoc;
 //        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 //            // TODO: Consider calling
@@ -189,19 +205,41 @@ public class MapTestActivity extends AppCompatActivity implements GoogleApiClien
 //            // for ActivityCompat#requestPermissions for more details.
 //            return;
 //        }
-//        mLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleClient);
-//        if (mLastLocation != null) {
-//            Log.d("test", mLastLocation.toString());
-//            userLoc = new LatLng(mLastLocation.getLatitude(), mLastLocation.getLongitude());
-//            mMap.addMarker(new MarkerOptions().title("User Location")
-//                    .position(userLoc));
-//            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(userLoc, 15));
-//            mMap.animateCamera(CameraUpdateFactory.zoomIn());
-//        }
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            mLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleClient);
+        }
+
+        if (mLastLocation != null) {
+            Log.d("test", mLastLocation.toString());
+            userLoc = new LatLng(mLastLocation.getLatitude(), mLastLocation.getLongitude());
+            mMap.addMarker(new MarkerOptions().title("User Location")
+                    .position(userLoc));
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(userLoc, 15));
+            mMap.animateCamera(CameraUpdateFactory.zoomIn());
+        }
     }
 
     @Override
     public void onConnected(Bundle bundle) {
+        LocationRequest mLocationRequest = new LocationRequest();
+        mLocationRequest.setInterval(10000);
+        mLocationRequest.setFastestInterval(5000);
+        mLocationRequest.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
+
+        LocationSettingsRequest.Builder builder = new LocationSettingsRequest.Builder()
+                .addLocationRequest(mLocationRequest);
+
+        PendingResult<LocationSettingsResult> result =
+                LocationServices.SettingsApi.checkLocationSettings(mGoogleClient,
+                        builder.build());
+
 
     }
 
@@ -212,6 +250,17 @@ public class MapTestActivity extends AppCompatActivity implements GoogleApiClien
 
     @Override
     public void onConnectionFailed(ConnectionResult connectionResult) {
+
+    }
+
+    @Override
+    public void onLocationChanged(Location location) {
+        mCurrentLocation = location;
+        updateMap();
+    }
+
+    private void updateMap() {
+        userMarker.setPosition(new LatLng(mCurrentLocation.getLatitude(),mCurrentLocation.getLongitude()));
 
     }
 }
