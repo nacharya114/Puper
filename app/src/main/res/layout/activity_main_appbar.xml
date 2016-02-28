@@ -7,6 +7,40 @@
     <include
         android:id="@+id/app_bar"
         layout="@layout/app_bar"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/map"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context="com.project.perry2.puper.MapTestActivity" />
+
+            <Button
+                android:id="@+id/btnUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginEnd="42dp"
+                android:layout_marginTop="45dp"
+                android:text="User" />
+        </RelativeLayout>
+
+        <!--<fragment xmlns:android="http://schemas.android.com/apk/res/android"-->
+        <!--xmlns:tools="http://schemas.android.com/tools" android:id="@+id/fragment"-->
+        <!--android:name="com.project.perry2.puper.MainActivityFragment"-->
+        <!--tools:layout="@layout/fragment_main" android:layout_width="match_parent"-->
+        <!--android:layout_height="500dp" />-->
+    </FrameLayout>
     <!--
         <android.support.v4.widget.DrawerLayout
             xmlns:android="http://schemas.android.com/apk/res/android"

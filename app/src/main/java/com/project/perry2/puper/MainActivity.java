@@ -1,6 +1,7 @@
 package com.project.perry2.puper;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Geocoder;
@@ -106,6 +107,8 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
                 })
                 .build();
 
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+
         btnUser = (Button) findViewById(R.id.btnUser);
         btnUser.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -131,7 +134,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
                     mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(userLoc, 15));
                     mMap.animateCamera(CameraUpdateFactory.zoomIn());
                 } else {
-                    Toast.makeText(getApplicationContext(), "Cannot retrieve location.", Toast.LENGTH_SHORT);
+                    Toast.makeText(getApplicationContext(), "Cannot retrieve location.", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -208,7 +211,27 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
             // for ActivityCompat#requestPermissions for more details.
             return;
         }
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 10, (android.location.LocationListener) this);
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 10, new android.location.LocationListener() {
+            @Override
+            public void onLocationChanged(Location location) {
+
+            }
+
+            @Override
+            public void onStatusChanged(String provider, int status, Bundle extras) {
+
+            }
+
+            @Override
+            public void onProviderEnabled(String provider) {
+
+            }
+
+            @Override
+            public void onProviderDisabled(String provider) {
+
+            }
+        });
     }
 
     /**
