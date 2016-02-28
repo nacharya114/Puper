@@ -5,7 +5,7 @@ Inventure Competition App
 
 Things
 <ol type="1">
-  <li>Google Maps and Directions</li>
+  <li>Customer Side</li>
   <ol type="i">
     <li>Use text fields to allow user to enter pickup and dropoff locations for delivery</li>
     <li>Generate a route using pickup and dropoff locations</li>
