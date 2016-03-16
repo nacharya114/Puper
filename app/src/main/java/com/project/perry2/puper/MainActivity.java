@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
     LocationManager locationManager;
     Geocoder geocoder;
     MapView mv;
+    int x = 0;
     private Toolbar toolbar;
     private String[] mDrawerTitles;
     private DrawerLayout mDrawerLayout;
@@ -345,6 +346,8 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
     private void updateMap() {
         userMarker.setPosition(new LatLng(mCurrentLocation.getLatitude(), mCurrentLocation.getLongitude()));
 
+        userMarker.setTitle("Test" + x);
+        x++;
     }
 
     private void createLocationRequest() {
