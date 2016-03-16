@@ -308,6 +308,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         PendingResult<LocationSettingsResult> result =
                 LocationServices.SettingsApi.checkLocationSettings(mGoogleClient,
                         builder.build());
+        createLocationRequest();
 
 
     }
@@ -348,6 +349,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
 
         userMarker.setTitle("Test" + x);
         x++;
+        Log.d("This works.", "Test");
     }
 
     private void createLocationRequest() {
